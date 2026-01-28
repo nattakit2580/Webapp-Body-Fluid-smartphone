@@ -1,0 +1,26 @@
+{
+  "hosting": {
+    "public": "public",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+
+    "headers": [
+      {
+        "source": "**/*.@(jpg|jpeg|png|webp|svg|css|js)",
+        "headers": [
+          { "key": "Cache-Control", "value": "public,max-age=3600" }
+        ]
+      }
+    ],
+
+    "rewrites": [
+      {
+        "source": "/api/**",
+        "run": {
+          "serviceId": "blast-yolo-api",
+          "region": "asia-southeast1"
+        }
+      },
+      { "source": "**", "destination": "/index.html" }
+    ]
+  }
+}

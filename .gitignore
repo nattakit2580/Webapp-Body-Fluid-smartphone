@@ -1,0 +1,18 @@
+# Node / tooling (ถ้าคุณไม่มี node_modules ก็ไม่มีปัญหา)
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Model (ถ้าจะไม่เอาขึ้น git)
+# backend/models/*.pt
