@@ -1,1 +1,151 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0B1220" />
+  <meta name="description" content="Blast Grading Prediction with YOLO" />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" href="./blast.jpg" />
 
+  <link rel="apple-touch-icon" href="./blast.jpg" />
+
+  <title>Blast Grading • YOLO WebApp</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <div class="bg"></div>
+  <div class="grain"></div>
+
+  <header class="top">
+    <div class="brand">
+      <div class="logo-wrap">
+        <img class="logo" src="./blast.jpg" alt="logo" />
+
+        <span class="spark"></span>
+      </div>
+
+      <div class="t">
+        <div class="title">Blast Grading</div>
+        <div class="sub">One-tap Camera → YOLO → Boxes</div>
+      </div>
+    </div>
+
+    <div class="pill" id="pillApi" title="API status">
+      <span class="dot" id="dot"></span>
+      <span id="apiText">API: checking…</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <!-- HERO -->
+      <div class="hero">
+        <div class="hero-title">ถ่ายรูปหรือเลือกรูป</div>
+        <div class="hero-sub">
+          กดปุ่มด้านล่างเพื่อเปิดกล้องมือถือ (หรือเลือกจากคลังรูป) แล้วระบบจะทำนายให้อัตโนมัติ
+        </div>
+
+        <input id="fileInput" type="file" accept="image/*" capture="environment" hidden />
+
+        <div class="actions">
+          <button class="btn btn-primary btn-big" id="btnCamera" type="button">
+            <span class="btn-ic">📷</span>
+            <span class="btn-tx">เปิดกล้อง / เลือกรูป</span>
+          </button>
+
+          <button class="btn btn-ghost" id="btnRetake" type="button" disabled>
+            🔄 ถ่าย/เลือกรูปใหม่
+          </button>
+        </div>
+
+        <div class="status">
+          <span class="badge" id="badge">พร้อมใช้งาน</span>
+          <span class="status-text" id="statusText">กดปุ่มเพื่อเริ่ม</span>
+        </div>
+
+        <div class="mini-tip">
+          <span class="mini-dot"></span>
+          <span>แนะนำ: ถ่ายภาพให้ชัด + วัตถุอยู่กลางเฟรม</span>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- STAGE -->
+      <div class="stage">
+        <div class="stage-top">
+          <div class="kpi">
+            <div class="k">ขนาดภาพ</div>
+            <div class="v" id="imgSize">-</div>
+          </div>
+          <div class="kpi">
+            <div class="k">จำนวนกล่อง</div>
+            <div class="v" id="detCount">-</div>
+          </div>
+          <div class="kpi">
+            <div class="k">API</div>
+            <div class="v" id="apiStatus">-</div>
+          </div>
+        </div>
+
+        <div class="preview" id="previewBox">
+          <img id="previewImg" alt="preview" />
+          <canvas id="overlay"></canvas>
+
+          <div class="empty" id="empty">
+            <div class="e1">🖼️</div>
+            <div class="e2">ยังไม่มีรูป</div>
+            <div class="e3">กด “เปิดกล้อง / เลือกรูป”</div>
+          </div>
+
+          <div class="loading" id="loading" aria-hidden="true">
+            <div class="spin"></div>
+            <div class="loading-text">กำลังทำนาย…</div>
+          </div>
+        </div>
+
+        <div class="hint">
+          * Firebase Hosting จะเรียก <code>/api/predict</code> (rewrite ไป Cloud Run) อัตโนมัติ
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- RESULTS -->
+      <div class="result-head">
+        <div class="rh-left">
+          <div class="rh-title">ผลลัพธ์</div>
+          <div class="rh-sub">class + confidence + bbox</div>
+        </div>
+
+        <button class="btn btn-chip" id="btnToggleBoxes" type="button" disabled>
+          👁️ ซ่อนกรอบ
+        </button>
+      </div>
+
+      <div class="summary" id="summary" style="display:none;">
+        <div class="sum-ic">✨</div>
+        <div class="sum-body">
+          <div class="sum-title" id="sumTitle">Top class</div>
+          <div class="sum-sub" id="sumSub">-</div>
+        </div>
+      </div>
+
+      <div class="results" id="results">
+        <div class="results-empty" id="resultsEmpty">ยังไม่มีผลลัพธ์</div>
+      </div>
+
+      <footer class="foot">
+        <span>© <span id="year"></span> Blast Grading • YOLO WebApp</span>
+        <span class="tag">Mobile-first</span>
+        <span class="tag">Auto predict</span>
+        <span class="tag">Canvas overlay</span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
