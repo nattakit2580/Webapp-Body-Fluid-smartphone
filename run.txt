@@ -1,3 +1,5 @@
 uvicorn main:APP --host 0.0.0.0 --port 8000 --reload
 
 firebase emulators:start --only hosting
+
+winget install -e --id Google.CloudSDK

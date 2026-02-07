@@ -1,4 +1,4 @@
-# Blast Grading • YOLO Mobile WebApp (Firebase Hosting + Cloud Run)
+# Body Fluid cell Classification • YOLO Mobile WebApp (Firebase Hosting + Cloud Run)
 
 เว็บมือถือ: ถ่ายภาพ/อัปโหลด → ส่งไปทำนายด้วย YOLO (`yolo.pt`) → แสดงผล + วาดกรอบบนรูป
 
