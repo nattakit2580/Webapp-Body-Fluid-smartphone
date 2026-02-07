@@ -16,7 +16,7 @@
       {
         "source": "/api/**",
         "run": {
-          "serviceId": "blast-yolo-api",
+          "serviceId": "bodyfluid-yolo-api",
           "region": "asia-southeast1"
         }
       },
@@ -24,3 +24,4 @@
     ]
   }
 }
+
