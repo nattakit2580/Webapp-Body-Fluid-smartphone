@@ -12,7 +12,7 @@ from fastapi.staticfiles import StaticFiles
 
 from ultralytics import YOLO
 
-APP = FastAPI(title="Blast Grading YOLO Inference API + Mobile UI")
+APP = FastAPI(title="Body Fluid cell Classification YOLO Inference API + Mobile UI")
 
 # ถ้าคุณเรียกผ่าน Firebase Hosting rewrite (โดเมนเดียวกัน) ปกติไม่ต้อง CORS
 # แต่เปิดไว้ช่วยตอนทดสอบ local ได้
