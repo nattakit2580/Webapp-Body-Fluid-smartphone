@@ -1,13 +1,13 @@
 {
-  "name": "Blast Grading • YOLO WebApp",
-  "short_name": "Blast YOLO",
+  "name": "Body Fluid cell Classification Grading • YOLO WebApp",
+  "short_name": "Body Fluid cell Classification YOLO",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#070B14",
   "theme_color": "#0B1220",
     "icons": [
-    { "src": "./blast.jpg", "sizes": "192x192", "type": "image/jpeg" },
-    { "src": "./blast.jpg", "sizes": "512x512", "type": "image/jpeg" }
+    { "src": "./logo.jpg", "sizes": "192x192", "type": "image/jpeg" },
+    { "src": "./logo.jpg", "sizes": "512x512", "type": "image/jpeg" }
     ]
 
 }
