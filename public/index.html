@@ -42,9 +42,9 @@
     <section class="card">
       <!-- HERO -->
       <div class="hero">
-        <div class="hero-title">ถ่ายรูปหรือเลือกรูป</div>
+        <div class="hero-title">Take a photo or choose a photo.</div>
         <div class="hero-sub">
-          กดปุ่มด้านล่างเพื่อเปิดกล้องมือถือ (หรือเลือกจากคลังรูป) แล้วระบบจะทำนายให้อัตโนมัติ
+          Press the button below to open your phone's camera (or select from your photo gallery), and the system will automatically make a prediction.
         </div>
 
         <input id="fileInput" type="file" accept="image/*" capture="environment" hidden />
@@ -52,22 +52,22 @@
         <div class="actions">
           <button class="btn btn-primary btn-big" id="btnCamera" type="button">
             <span class="btn-ic">📷</span>
-            <span class="btn-tx">เปิดกล้อง / เลือกรูป</span>
+            <span class="btn-tx">Open the camera / Select a photo.</span>
           </button>
 
           <button class="btn btn-ghost" id="btnRetake" type="button" disabled>
-            🔄 ถ่าย/เลือกรูปใหม่
+            🔄 Take/select a new photo.
           </button>
         </div>
 
         <div class="status">
-          <span class="badge" id="badge">พร้อมใช้งาน</span>
-          <span class="status-text" id="statusText">กดปุ่มเพื่อเริ่ม</span>
+          <span class="badge" id="badge">Ready to use</span>
+          <span class="status-text" id="statusText">Press the button to start.</span>
         </div>
 
         <div class="mini-tip">
           <span class="mini-dot"></span>
-          <span>แนะนำ: ถ่ายภาพให้ชัด + วัตถุอยู่กลางเฟรม</span>
+          <span>Tip: Take a clear photo + center the object in the frame.</span>
         </div>
       </div>
 
@@ -77,11 +77,11 @@
       <div class="stage">
         <div class="stage-top">
           <div class="kpi">
-            <div class="k">ขนาดภาพ</div>
+            <div class="k">Image size</div>
             <div class="v" id="imgSize">-</div>
           </div>
           <div class="kpi">
-            <div class="k">จำนวนกล่อง</div>
+            <div class="k">Number of boxes</div>
             <div class="v" id="detCount">-</div>
           </div>
           <div class="kpi">
@@ -96,18 +96,18 @@
 
           <div class="empty" id="empty">
             <div class="e1">🖼️</div>
-            <div class="e2">ยังไม่มีรูป</div>
-            <div class="e3">กด “เปิดกล้อง / เลือกรูป”</div>
+            <div class="e2">There are no pictures yet.</div>
+            <div class="e3">Press “Open Camera / Select Photo”.</div>
           </div>
 
           <div class="loading" id="loading" aria-hidden="true">
             <div class="spin"></div>
-            <div class="loading-text">กำลังทำนาย…</div>
+            <div class="loading-text">Predicting...</div>
           </div>
         </div>
 
         <div class="hint">
-          * Firebase Hosting จะเรียก <code>/api/predict</code> (rewrite ไป Cloud Run) อัตโนมัติ
+          * Firebase Hosting will call <code>/api/predict</code> (Rewrite to Cloud Run) Automatically.
         </div>
       </div>
 
@@ -116,12 +116,12 @@
       <!-- RESULTS -->
       <div class="result-head">
         <div class="rh-left">
-          <div class="rh-title">ผลลัพธ์</div>
+          <div class="rh-title">result</div>
           <div class="rh-sub">class + confidence + bbox</div>
         </div>
 
         <button class="btn btn-chip" id="btnToggleBoxes" type="button" disabled>
-          👁️ ซ่อนกรอบ
+          👁️ Hide frame
         </button>
       </div>
 
@@ -134,7 +134,7 @@
       </div>
 
       <div class="results" id="results">
-        <div class="results-empty" id="resultsEmpty">ยังไม่มีผลลัพธ์</div>
+        <div class="results-empty" id="resultsEmpty">No results yet</div>
       </div>
 
       <footer class="foot">
@@ -149,3 +149,4 @@
   <script src="./app.js"></script>
 </body>
 </html>
+
